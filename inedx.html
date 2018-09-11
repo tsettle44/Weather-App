@@ -6,12 +6,26 @@
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="main.js"></script>
 </head>
 <body>
-    <label>Zip Code
-        <input id="zipCode"/>
-    </label>
-    <button onclick="search()">Search</button>
+    <div class="container">
+        <div class="col s6">
+            <label>Zip Code
+                <input placeholder="Enter Zip Code..." id="zipCode"/>
+            </label>
+        </div>
+        <div id="button" class="col s4 offset-s4">
+            <button id="search" class="btn-large waves-effect waves-light" type="submit" onclick="search()">Search
+            </button>
+        </div>
+    </div>
 </body>
 </html>
