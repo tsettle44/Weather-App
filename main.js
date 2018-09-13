@@ -64,5 +64,15 @@ function search () {
     ]
 
     console.log(data[0].name)
+    var cityName = data[0].name
+    var country = data[0].sys.country
+
+    //Add date to DOM
+    var name = document.createElement("h3");
+    var node = document.createTextNode(cityName + ", " + country);
+    name.appendChild(node);
+
+    var element = document.getElementById("weatherData");
+    element.appendChild(name);
         
 }

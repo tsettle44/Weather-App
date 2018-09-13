@@ -1,3 +1,12 @@
 #button {
     text-align: center;
 }
+
+#main{
+    margin-top: 200px;
+}
+
+#weatherData h3 {
+
+    float: left;
+}
