@@ -6,6 +6,10 @@
     margin-top: 200px;
 }
 
+#weatherData{
+    display: inline-block;
+}
+
 #weatherData h3 {
 
     float: left;

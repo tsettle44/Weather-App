@@ -1,78 +1,84 @@
-function search () {
+function enter () {
+    if(event.key === 'Enter'){
+        search()
+    }
+}
 
+function search () {
+               
     var zipCode = document.getElementById('zipCode').value
 
-    console.log(zipCode)
-
     var request = new XMLHttpRequest();
-
-    /*
+    
     request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip='+zipCode+',us&appid=26e9a3f1568c93129c774adfb8c5aecd', true);
     request.onload = function () {
 
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
+    console.log(data)
 
-    request.send();
+    var icons = 
+    {
+        200:{
+            "url": "http://openweathermap.org/img/w/11d.png" 
+        },
+        300:{
+            "url": "http://openweathermap.org/img/w/09d.png" 
+        },
+        500:{
+            "url": "http://openweathermap.org/img/w/10d.png" 
+        },
+        600:{
+            "url": "http://openweathermap.org/img/w/13d.png" 
+        },
+        700:{
+            "url": "http://openweathermap.org/img/w/50d.png" 
+        },
+        800:{
+            "url": "http://openweathermap.org/img/w/01d.png" 
+        },
     }
-    */
 
-    var data = [
-        {
-            "coord": {
-            "lon": -122.09,
-            "lat": 37.39
-            },
-            "weather": [
-            {
-            "id": 500,
-            "main": "Rain",
-            "description": "light rain",
-            "icon": "10d"
-            }
-            ],
-            "base": "stations",
-            "main": {
-            "temp": 280.44,
-            "pressure": 1017,
-            "humidity": 61,
-            "temp_min": 279.15,
-            "temp_max": 281.15
-            },
-            "visibility": 12874,
-            "wind": {
-            "speed": 8.2,
-            "deg": 340,
-            "gust": 11.3
-            },
-            "clouds": {
-            "all": 1
-            },
-            "dt": 1519061700,
-            "sys": {
-            "type": 1,
-            "id": 392,
-            "message": 0.0027,
-            "country": "US",
-            "sunrise": 1519051894,
-            "sunset": 1519091585
-            },
-            "id": 0,
-            "name": "Mountain View",
-            "cod": 200
-        }
-    ]
 
-    console.log(data[0].name)
-    var cityName = data[0].name
-    var country = data[0].sys.country
+    console.log(data.name)
+    var cityName = data.name
+    var country = data.sys.country
 
-    //Add date to DOM
+    var weather = data.weather[0].main
+    var weatherDesc = data.weather[0].description
+    console.log(weatherDesc)
+
+    //Add data to DOM
+    //cityname
     var name = document.createElement("h3");
     var node = document.createTextNode(cityName + ", " + country);
     name.appendChild(node);
 
+    //weather
+    var condition = document.createElement("h5");
+    var conditionNode = document.createTextNode(weather);
+    condition.appendChild(conditionNode);
+
+    //weather desc.
+    var conditionDesc = document.createElement("h6");
+    var conditionDescNode = document.createTextNode(weatherDesc.toUpperCase());
+    conditionDesc.appendChild(conditionDescNode);
+
+    //weather icon
+    weatherID = Math.floor(data.weather[0].id / 100) * 100
+    console.log(weatherID)
+    document.getElementById("icon").src = icons[weatherID].url
+    document.getElementById("icon").width = 100
+    document.getElementById("icon").height = 100
+
+    //Append to DOM
     var element = document.getElementById("weatherData");
     element.appendChild(name);
-        
+    element.appendChild(condition);
+    element.appendChild(conditionDesc);
+
+    }
+
+    request.send(); 
+      
 }

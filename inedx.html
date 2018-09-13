@@ -21,14 +21,14 @@
             <div class="col s12 m4 l2"></div>
             <div class="col s12 m4 l8">
                         <label>Zip Code
-                            <input placeholder="Enter Zip Code..." id="zipCode"/>
+                            <input id="zipCode" onkeydown="search()" placeholder="Enter Zip Code...">
                         </label>
                     <div id="button" class="col s4 offset-s4">
                         <button id="search" class="btn-large waves-effect waves-light" type="submit" onclick="search()">Search
                         </button>
                     </div>
                     <div id="weatherData">
-                        
+                        <img id="icon"/>
                     </div>
             </div>
             <div class="col s12 m4 l2"><p></p></div>
