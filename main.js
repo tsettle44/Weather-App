@@ -5,6 +5,10 @@ function enter () {
 }
 
 function search () {
+
+    while (document.getElementById("weatherData").firstChild) {
+        document.getElementById("weatherData").removeChild(document.getElementById("weatherData").firstChild);
+    }
                
     var zipCode = document.getElementById('zipCode').value
 
@@ -49,6 +53,12 @@ function search () {
     console.log(weatherDesc)
 
     //Add data to DOM
+    //img
+    var img = document.createElement("img")
+    img.id = "icon"
+    var element = document.getElementById("weatherData");
+    element.appendChild(img);
+
     //cityname
     var name = document.createElement("h3");
     var node = document.createTextNode(cityName + ", " + country);
@@ -73,6 +83,7 @@ function search () {
 
     //Append to DOM
     var element = document.getElementById("weatherData");
+    element.appendChild(img);
     element.appendChild(name);
     element.appendChild(condition);
     element.appendChild(conditionDesc);
@@ -80,5 +91,5 @@ function search () {
     }
 
     request.send(); 
-      
 }
+      
