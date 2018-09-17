@@ -14,3 +14,9 @@
 
     float: left;
 }
+
+.loader.preloader-wrapper.big {
+    display: block;
+    margin: 0 auto;
+    z-index: 99;
+}

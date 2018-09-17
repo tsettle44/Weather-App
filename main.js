@@ -1,7 +1,25 @@
 function enter () {
     if(event.key === 'Enter'){
-        search()
+        load()
     }
+}
+
+function load(){
+    var body = document.getElementById("body")
+    body.style.display = "none"
+    var loader = document.getElementById("loaderBig")
+    loader.classList.add("active")
+    window.setTimeout(reposition, 2000)
+}
+
+function reposition() {
+    var body = document.getElementById("body")
+    body.style.display = "block"
+    var loader = document.getElementById("loaderBig")
+    loader.classList.remove("active")
+    var main = document.getElementById("main")
+    main.style.marginTop = "10px"
+    search()
 }
 
 function search () {

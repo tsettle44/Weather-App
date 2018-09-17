@@ -20,16 +20,60 @@
         <div id="main" class="row">
             <div class="col s12 m4 l2"></div>
             <div class="col s12 m4 l8">
+                    <div id="body">
                         <label>Zip Code
                             <input id="zipCode" onkeydown="enter()" placeholder="Enter Zip Code...">
                         </label>
-                    <div id="button" class="col s4 offset-s4">
-                        <button id="search" class="btn-large waves-effect waves-light" type="submit" onclick="search()">Search
-                        </button>
-                    </div>
-                    <div id="weatherData">
+                        <div id="button" class="col s4 offset-s4">
+                            <button id="search" class="btn-large waves-effect waves-light" type="submit" onclick="load()">Search
+                            </button>
+                        </div>
+                        <div id="weatherData">
 
+                        </div>
                     </div>
+                    <!--LOADER-->
+                    <div id="loaderBig" class="loader preloader-wrapper big">
+                            <div class="spinner-layer spinner-blue">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                      
+                            <div class="spinner-layer spinner-red">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                      
+                            <div class="spinner-layer spinner-yellow">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                      
+                            <div class="spinner-layer spinner-green">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                          </div>
             </div>
             <div class="col s12 m4 l2"><p></p></div>
         </div>
