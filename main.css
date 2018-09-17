@@ -7,7 +7,9 @@
 }
 
 #weatherData{
+    padding-top: 20px;
     display: inline-block;
+    width: 100%;
 }
 
 #weatherData h3 {
@@ -19,4 +21,9 @@
     display: block;
     margin: 0 auto;
     z-index: 99;
+}
+
+#tabs {
+    display: none;
+    padding-top: 20px;
 }

@@ -107,6 +107,10 @@ function search () {
     document.getElementById("icon").width = 100
     document.getElementById("icon").height = 100
 
+    //TABS
+    var tabs = document.getElementById("tabs")
+    tabs.style.display = "block"
+
     //Append to DOM
     var element = document.getElementById("weatherData");
     element.appendChild(img);
