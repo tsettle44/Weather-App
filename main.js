@@ -39,6 +39,14 @@ function search () {
     var data = JSON.parse(this.response);
     console.log(data)
 
+    if (data.cod == "404") {
+        var name = document.createElement("h3");
+        var node = document.createTextNode(data.message.toUpperCase());
+        name.appendChild(node);
+        var element = document.getElementById("weatherData");
+        element.appendChild(name)
+    } else {
+
     var icons = 
     {
         200:{
@@ -106,6 +114,7 @@ function search () {
     element.appendChild(condition);
     element.appendChild(conditionDesc);
 
+    }
     }
 
     request.send(); 
