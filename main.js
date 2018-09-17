@@ -10,6 +10,10 @@ function load(){
     var loader = document.getElementById("loaderBig")
     loader.classList.add("active")
     window.setTimeout(reposition, 2000)
+
+    //TABS display none
+    var tabs = document.getElementById("tabs")
+    tabs.style.display = "none"
 }
 
 function reposition() {
@@ -32,7 +36,7 @@ function search () {
 
     var request = new XMLHttpRequest();
     
-    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip='+zipCode+',us&appid=26e9a3f1568c93129c774adfb8c5aecd', true);
+    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip='+zipCode+'&units=imperial'+',us&appid=26e9a3f1568c93129c774adfb8c5aecd', true);
     request.onload = function () {
 
     // Begin accessing JSON data here
@@ -110,6 +114,14 @@ function search () {
     //TABS
     var tabs = document.getElementById("tabs")
     tabs.style.display = "block"
+
+    //Add weather data to tab
+    var weatherTab = document.getElementById("weather")
+    var temp = document.createElement('h5')
+    var tempFar = Math.round(data.main.temp * 9/5 - 459.67,0)
+    var tempData = document.createTextNode("Temperature: " + tempFar + " degrees")
+    temp.appendChild(tempData)
+    weatherTab.appendChild(temp)
 
     //Append to DOM
     var element = document.getElementById("weatherData");
