@@ -31,6 +31,10 @@ function search () {
     while (document.getElementById("weatherData").firstChild) {
         document.getElementById("weatherData").removeChild(document.getElementById("weatherData").firstChild);
     }
+
+    while (document.getElementById("weather").firstChild) {
+        document.getElementById("weather").removeChild(document.getElementById("weather").firstChild);
+    }
                
     var zipCode = document.getElementById('zipCode').value
 
@@ -115,13 +119,23 @@ function search () {
     var tabs = document.getElementById("tabs")
     tabs.style.display = "block"
 
+    //MAP
+    var lat = data.coord.lat
+    var lon = data.coord.lon
+    map(lat, lon)
+
     //Add weather data to tab
     var weatherTab = document.getElementById("weather")
     var temp = document.createElement('h5')
     var tempFar = Math.round(data.main.temp * 9/5 - 459.67,0)
     var tempData = document.createTextNode("Temperature: " + tempFar + " degrees")
+    var humidity = data.main.humidity
+    var humdEle = document.createElement('h5')
+    var humdNode = document.createTextNode("Humidity: " + humidity + "%")
+    humdEle.appendChild(humdNode)
     temp.appendChild(tempData)
     weatherTab.appendChild(temp)
+    weatherTab.appendChild(humdEle)
 
     //Append to DOM
     var element = document.getElementById("weatherData");
@@ -134,5 +148,19 @@ function search () {
     }
 
     request.send(); 
+}
+
+function map(lat, lon) {
+    while(document.getElementById("weather").firstChild){
+        
+        //MAP
+        var map, lat, lon;
+        console.log(lat, lon)
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: lat, lng: lon},
+            zoom: 8
+        });
+    }
 }
       
