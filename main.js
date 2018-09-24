@@ -134,9 +134,20 @@ function search () {
     var humidity = data.main.humidity
     var humdEle = document.createElement('h5')
     var humdNode = document.createTextNode("Humidity: " + humidity + "%")
+    var tempHi = Math.round(data.main.temp_max * 9/5 - 459.67,0)
+    var tempHiEle = document.createElement('h5')
+    var tempHiNode = document.createTextNode("High: " + tempHi + " degrees")
+    var tempLo = Math.round(data.main.temp_min * 9/5 - 459.67,0)
+    var tempLoEle = document.createElement('h5')
+    var tempLoNode = document.createTextNode("Logh: " + tempLo + " degrees")
+
+    tempHiEle.appendChild(tempHiNode)
+    tempLoEle.appendChild(tempLoNode)
     humdEle.appendChild(humdNode)
     temp.appendChild(tempData)
     weatherTab.appendChild(temp)
+    weatherTab.appendChild(tempHiEle)
+    weatherTab.appendChild(tempLoEle)
     weatherTab.appendChild(humdEle)
 
     //Append to DOM
