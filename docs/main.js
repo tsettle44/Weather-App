@@ -130,7 +130,7 @@ function search () {
     var tempHiNode = document.createTextNode("High: " + tempHi + " degrees")
     var tempLo = Math.round(data.main.temp_min * 9/5 - 459.67,0)
     var tempLoEle = document.createElement('h5')
-    var tempLoNode = document.createTextNode("Logh: " + tempLo + " degrees")
+    var tempLoNode = document.createTextNode("Low: " + tempLo + " degrees")
 
     tempHiEle.appendChild(tempHiNode)
     tempLoEle.appendChild(tempLoNode)
