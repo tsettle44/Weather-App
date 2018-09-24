@@ -7,6 +7,8 @@ function enter () {
 function load(){
     var body = document.getElementById("body")
     body.style.display = "none"
+    var main = document.getElementById("main")
+    main.style.backgroundColor = "#ffffff"
     var loader = document.getElementById("loaderBig")
     loader.classList.add("active")
     window.setTimeout(reposition, 2000)
