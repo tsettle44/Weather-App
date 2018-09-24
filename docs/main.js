@@ -47,7 +47,6 @@ function search () {
 
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
-    console.log(data)
 
     if (data.cod == "404") {
         var name = document.createElement("h3");
@@ -80,13 +79,11 @@ function search () {
     }
 
 
-    console.log(data.name)
     var cityName = data.name
     var country = data.sys.country
 
     var weather = data.weather[0].main
     var weatherDesc = data.weather[0].description
-    console.log(weatherDesc)
 
     //Add data to DOM
     //img
@@ -112,7 +109,6 @@ function search () {
 
     //weather icon
     weatherID = Math.floor(data.weather[0].id / 100) * 100
-    console.log(weatherID)
     document.getElementById("icon").src = icons[weatherID].url
     document.getElementById("icon").width = 100
     document.getElementById("icon").height = 100
@@ -120,11 +116,6 @@ function search () {
     //TABS
     var tabs = document.getElementById("tabs")
     tabs.style.display = "block"
-
-    //MAP
-    var lat = data.coord.lat
-    var lon = data.coord.lon
-    map(lat, lon)
 
     //Add weather data to tab
     var weatherTab = document.getElementById("weather")
@@ -163,17 +154,4 @@ function search () {
     request.send(); 
 }
 
-function map(lat, lon) {
-    while(document.getElementById("weather").firstChild){
-        
-        //MAP
-        var map, lat, lon;
-        console.log(lat, lon)
-
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: lat, lng: lon},
-            zoom: 8
-        });
-    }
-}
       
